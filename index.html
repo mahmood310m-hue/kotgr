@@ -3,151 +3,135 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>تطبيق مدرسة كوثر الأهلية</title>
+<title>مدرسة كوثر الأهلية</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#eef3fb;--card:#fff;--tx:#14233f;--mut:#7a869c;--pr:#1456c8;--pr2:#0d3a7a;--ln:#e3e9f4;--soft:#eaf1fd;--ok:#22a45d;--bad:#e5484d;--org:#f59e0b;box-sizing:border-box}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#141d30;--tx:#e8eefb;--mut:#93a0b8;--ln:#24304a;--soft:#1b2b4d}}
+:root{--bg:#eef3fb;--card:#fff;--tx:#14233f;--mut:#7a869c;--pr:#1456c8;--pr2:#0d3a7a;--ln:#e3e9f4;--soft:#eaf1fd;--ok:#22a45d;--bad:#e5484d;--org:#f59e0b}
 :root[data-theme="dark"]{--bg:#0b1220;--card:#141d30;--tx:#e8eefb;--mut:#93a0b8;--ln:#24304a;--soft:#1b2b4d}
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
 body{font-family:'Tajawal',Tahoma,sans-serif;background:var(--bg);color:var(--tx);display:flex;justify-content:center;align-items:center}
+button,input{font-family:inherit}
 .phone{width:390px;height:780px;max-height:100%;background:var(--bg);border-radius:34px;overflow:hidden;position:relative;display:flex;flex-direction:column;box-shadow:0 20px 60px #0b2a6040;border:7px solid #0d1a33}
 @media(max-width:480px){.phone{width:100%;height:100%;border:0;border-radius:0}}
-.scr{display:none;flex:1;flex-direction:column;overflow:hidden}
-.scr.on{display:flex}
+#view{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .body{flex:1;overflow-y:auto;padding:14px}
-.hdr{background:linear-gradient(160deg,var(--pr),var(--pr2));color:#fff;padding:calc(env(safe-area-inset-top,0px) + 18px) 16px 16px;display:flex;align-items:center;justify-content:space-between}
-.hdr h1{font-size:19px;font-weight:800}
-.hdr small{opacity:.85;font-size:12px;display:block;margin-top:2px}
-.av{width:46px;height:46px;border-radius:50%;background:#fff3;display:grid;place-items:center;font-size:24px;border:2px solid #fff8}
-.bell{position:relative;font-size:22px}.bell b{position:absolute;top:-6px;right:-6px;background:var(--bad);font-size:10px;border-radius:50%;width:16px;height:16px;display:grid;place-items:center}
+.hdr{background:linear-gradient(160deg,var(--pr),var(--pr2));color:#fff;padding:calc(env(safe-area-inset-top,0px) + 18px) 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hdr h1{font-size:19px;font-weight:800}.hdr small{opacity:.85;font-size:12px;display:block;margin-top:2px}
+.hdr .bk{background:#fff2;border:0;color:#fff;width:36px;height:36px;border-radius:50%;font-size:18px}
+.av{width:46px;height:46px;border-radius:50%;background:#fff3;display:grid;place-items:center;font-size:24px;border:2px solid #fff8;flex:none}
+.bell{position:relative;font-size:22px;background:none;border:0;color:#fff}.bell b{position:absolute;top:-6px;right:-6px;background:var(--bad);font-size:10px;border-radius:50%;width:16px;height:16px;display:grid;place-items:center}
 .card{background:var(--card);border-radius:16px;border:1px solid var(--ln);padding:12px;margin-bottom:12px}
 .banner{height:120px;border-radius:16px;margin-bottom:14px;background:linear-gradient(120deg,#0d3a7acc,#1456c8aa),repeating-linear-gradient(90deg,#8fb4ee 0 22px,#a9c6f2 22px 44px);color:#fff;padding:18px;display:flex;flex-direction:column;justify-content:center}
 .banner h2{font-size:18px;font-weight:800}.banner span{font-size:12px;opacity:.9;margin-top:6px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
-.tile{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:14px 4px;text-align:center;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;color:var(--tx)}
-.tile i{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;margin:0 auto 8px;font-style:normal;font-size:22px}
+.tile{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:14px 4px;text-align:center;font-size:12px;font-weight:700;color:var(--tx)}
+.tile i{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;margin:0 auto 8px;font-style:normal;font-size:22px;color:#000}
 .sec{display:flex;justify-content:space-between;align-items:center;margin:4px 2px 10px;font-weight:800}
 .sec a{font-size:12px;color:var(--pr);font-weight:500}
-.row{display:flex;align-items:center;gap:12px}
-.row .g{flex:1}.row h4{font-size:14px}.row p{font-size:11.5px;color:var(--mut);margin-top:2px}
-.ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:none}
-.num{width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--pr);display:grid;place-items:center;font-weight:800;font-size:13px}
+.row{display:flex;align-items:center;gap:12px;cursor:pointer}
+.row .g{flex:1;min-width:0}.row h4{font-size:14px}.row p{font-size:11.5px;color:var(--mut);margin-top:2px}
+.ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:none;color:#000}
+.num{width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--pr);display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
 .seg{display:flex;background:var(--soft);border-radius:12px;padding:4px;margin-bottom:12px}
-.seg button{flex:1;border:0;background:none;padding:8px;border-radius:9px;font:700 13px inherit;font-family:inherit;color:var(--mut)}
+.seg button{flex:1;border:0;background:none;padding:8px;border-radius:9px;font-weight:700;font-size:13px;color:var(--mut)}
 .seg .a{background:var(--pr);color:#fff}
 .nav{display:flex;background:var(--card);border-top:1px solid var(--ln);padding:8px 4px calc(env(safe-area-inset-bottom,0px) + 8px)}
-.nav button{flex:1;border:0;background:none;font-family:inherit;font-size:11px;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:3px}
+.nav button{flex:1;border:0;background:none;font-size:11px;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:3px}
 .nav button span{font-size:20px}.nav .on{color:var(--pr);font-weight:800}
-/* login */
 .login{background:linear-gradient(180deg,#8fb8f2 0,#cfe0f8 38%,var(--bg) 38%)}
 .logo{height:38%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0d3a7a;text-align:center}
 .logo .b{font-size:56px}.logo h1{font-size:24px;font-weight:800}.logo p{font-size:12px}
 .form{flex:1;background:var(--card);border-radius:26px 26px 0 0;padding:22px;margin-top:-10px}
 .form h3{margin-bottom:14px}
-.inp{width:100%;border:1px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:12px;padding:13px;margin-bottom:12px;font:500 14px inherit;font-family:inherit}
-.btn{width:100%;border:0;background:var(--pr);color:#fff;border-radius:12px;padding:14px;font:800 15px inherit;font-family:inherit}
+.inp{width:100%;border:1px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:12px;padding:13px;margin-bottom:12px;font-size:14px}
+.pw{position:relative}.pw button{position:absolute;left:10px;top:9px;border:0;background:none;font-size:18px}
+.btn{width:100%;border:0;background:var(--pr);color:#fff;border-radius:12px;padding:14px;font-weight:800;font-size:15px}
 .lnk{text-align:center;font-size:12px;color:var(--pr);margin-top:12px}
-/* grades */
-.ring{width:130px;height:130px;border-radius:50%;margin:6px auto 14px;display:grid;place-items:center;background:conic-gradient(var(--ok) 92.5%,var(--ln) 0)}
+.ring{width:130px;height:130px;border-radius:50%;margin:6px auto 14px;display:grid;place-items:center}
 .ring div{width:104px;height:104px;border-radius:50%;background:var(--card);display:grid;place-items:center;text-align:center;font-size:11px;color:var(--mut)}
 .ring b{font-size:24px;color:var(--tx);display:block}
-.sel{display:flex;gap:8px;margin-bottom:12px}.sel div{flex:1;border:1px solid var(--ln);background:var(--card);border-radius:12px;padding:9px;font-size:12px;text-align:center}
 .score{background:var(--soft);color:var(--pr);border-radius:20px;padding:3px 12px;font-weight:800;font-size:13px}
 .st{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 .st .card{margin:0;display:flex;justify-content:space-between;align-items:center}
 .st b{font-size:22px;display:block}.st small{font-size:12px;color:var(--mut)}
+.dn{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-weight:800}
+.dn button{border:1px solid var(--ln);background:var(--card);color:var(--tx);width:34px;height:34px;border-radius:50%;font-size:16px}
+.tag{border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:12px}
+.cal span{padding:8px 0;border-radius:10px}.cal .h{color:var(--mut);font-weight:700}
+.cal .s{background:var(--soft);cursor:pointer;font-weight:700}.cal .t{background:var(--pr);color:#fff}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid var(--ln);display:grid;place-items:center;flex:none;color:#fff}
+.chk.d{background:var(--ok);border-color:var(--ok)}
+.more{display:none;font-size:12.5px;color:var(--mut);margin-top:8px;line-height:1.7}.open .more{display:block}
+.sel{display:flex;gap:8px;margin-bottom:12px}.sel button{flex:1;border:1px solid var(--ln);background:var(--card);color:var(--tx);border-radius:12px;padding:9px;font-size:12px}
+.sel .a{background:var(--pr);color:#fff;border-color:var(--pr)}
+#toast{position:absolute;bottom:90px;left:50%;transform:translateX(-50%);background:#14233f;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;opacity:0;transition:.25s;pointer-events:none;max-width:85%;text-align:center}
+#toast.on{opacity:1}
+.empty{text-align:center;color:var(--mut);padding:40px 10px}
 </style>
 </head>
 <body>
-<div class="phone">
-
-<!-- تسجيل الدخول -->
-<section class="scr on login" id="login">
-  <div class="logo"><div class="b">📖</div><h1>مدرسة كوثر الأهلية</h1><p>بناء جيل متميز .. لمستقبل أفضل</p></div>
-  <div class="form">
-    <h3>تسجيل الدخول</h3>
-    <input class="inp" placeholder="اسم المستخدم">
-    <input class="inp" type="password" placeholder="كلمة المرور">
-    <button class="btn" onclick="go('home')">دخول</button>
-    <div class="lnk">نسيت كلمة المرور؟</div>
-    <div class="lnk" style="color:var(--mut)">ليس لديك حساب؟ <b style="color:var(--pr)">تواصل مع الإدارة</b></div>
-  </div>
-</section>
-
-<!-- الرئيسية -->
-<section class="scr" id="home">
-  <div class="hdr"><div class="row"><div class="av">🧑‍🏫</div><div><h1>مرحباً أحمد محمد</h1><small>الصف السادس الابتدائي – الشعبة (أ)</small></div></div><div class="bell">🔔<b>٣</b></div></div>
-  <div class="body">
-    <div class="banner"><h2>معاً نحو مستقبل مشرق</h2><span>مدرسة كوثر الأهلية</span></div>
-    <div class="grid">
-      <button class="tile" onclick="go('sched')"><i style="background:#e4eeff">📅</i>الجدول الدراسي</button>
-      <button class="tile" onclick="go('grades')"><i style="background:#fff2d9">🅰️</i>الدرجات</button>
-      <button class="tile"><i style="background:#dff6e8">✅</i>الحضور والغياب</button>
-      <button class="tile"><i style="background:#dff6ee">📝</i>الواجبات</button>
-      <button class="tile"><i style="background:#e4eeff">📚</i>الدروس</button>
-      <button class="tile"><i style="background:#efe4ff">📢</i>الإعلانات</button>
-    </div>
-    <div class="sec">آخر الإعلانات <a>عرض الكل</a></div>
-    <div class="card row"><div class="ic" style="background:var(--soft)">📣</div><div class="g"><h4>إعلان هام</h4><p>سيكون الاجتماع الشهري لأولياء الأمور يوم الأحد ٢٠٢٦/١١/٠٢</p></div></div>
-  </div>
-</section>
-
-<!-- الجدول -->
-<section class="scr" id="sched">
-  <div class="hdr"><h1>الجدول الدراسي</h1><span style="font-size:22px">📅</span></div>
-  <div class="body">
-    <div class="seg"><button class="a" onclick="seg(this)">اليوم</button><button onclick="seg(this)">الأسبوع</button><button onclick="seg(this)">الشهر</button></div>
-    <p style="text-align:center;font-weight:800;margin-bottom:12px">الأحد ٢٦ أكتوبر ٢٠٢٦</p>
-    <div id="lessons"></div>
-  </div>
-</section>
-
-<!-- الدرجات -->
-<section class="scr" id="grades">
-  <div class="hdr"><h1>الدرجات</h1><span style="font-size:22px">🧮</span></div>
-  <div class="body">
-    <div class="sel"><div>٢٠٢٦ - ٢٠٢٧ ⌄</div><div>الفصل الأول ⌄</div></div>
-    <div class="ring"><div><span>المعدل العام<b>٩٢٫٥٪</b></span></div></div>
-    <div id="subs"></div>
-  </div>
-</section>
-
-<!-- أولياء الأمور -->
-<section class="scr" id="parent">
-  <div class="hdr"><h1>أولياء الأمور</h1><span style="font-size:22px">👤</span></div>
-  <div class="body">
-    <div class="card row"><div class="av" style="background:var(--soft);border:0">👧</div><div class="g"><h4>سارة أحمد محمد</h4><p>الصف السادس الابتدائي – الشعبة (أ)</p></div></div>
-    <div class="st">
-      <div class="card"><div><small>الحضور</small><b style="color:var(--ok)">٩٨٪</b></div><span>👥</span></div>
-      <div class="card"><div><small>الدرجات</small><b style="color:var(--pr)">٩٢٫٥٪</b></div><span>🧮</span></div>
-      <div class="card"><div><small>الواجبات</small><b style="color:var(--org)">٥</b></div><span>🏠</span></div>
-      <div class="card"><div><small>الغياب</small><b style="color:var(--bad)">١</b></div><span>🚫</span></div>
-    </div>
-    <div class="sec">الأنشطة الأخيرة</div>
-    <div class="card row"><div class="ic" style="background:#efe4ff">🅰️</div><div class="g"><h4>تم إضافة درجات جديدة</h4><p>٢٠٢٦/١٠/٢٥</p></div></div>
-    <div class="card row"><div class="ic" style="background:#dff6e8">✅</div><div class="g"><h4>تم تسجيل حضور الطالب</h4><p>٢٠٢٦/١٠/٢٤</p></div></div>
-    <div class="card row"><div class="ic" style="background:#e4eeff">📄</div><div class="g"><h4>تم نشر واجب جديد</h4><p>٢٠٢٦/١٠/٢٣</p></div></div>
-  </div>
-</section>
-
-<nav class="nav" id="nav" style="display:none">
-  <button data-t="home" class="on" onclick="go('home')"><span>🏠</span>الرئيسية</button>
-  <button data-t="sched" onclick="go('sched')"><span>📅</span>الجدول</button>
-  <button data-t="grades" onclick="go('grades')"><span>🅰️</span>الدرجات</button>
-  <button data-t="parent" onclick="go('parent')"><span>⋯</span>المزيد</button>
-</nav>
-</div>
-
+<div class="phone"><div id="view"></div><nav class="nav" id="nav" style="display:none"></nav><div id="toast"></div></div>
 <script>
-const L=[["اللغة العربية","٠٨:٠٠ - ٠٨:٤٥","(١) القاعة","📖","#dff6ee"],["الرياضيات","٠٨:٥٥ - ٠٩:٤٠","(٢) القاعة","🧮","#e4eeff"],["العلوم","٠٩:٥٠ - ١٠:٣٥","(١) القاعة","🧪","#fff2d9"],["اللغة الإنجليزية","١٠:٤٥ - ١١:٣٠","(٢) القاعة","🔤","#e4eeff"],["التربية الإسلامية","١١:٤٠ - ١٢:٢٥","(١) القاعة","🕌","#dff6e8"]];
-const G=[["اللغة العربية","٩٥","📖","#ffe4e4"],["الرياضيات","٩٠","🧮","#efe4ff"],["العلوم","٩٣","🧪","#dff6ee"],["اللغة الإنجليزية","٨٨","🔤","#ffe4e4"],["التربية الإسلامية","٩٦","🕌","#dff6e8"],["الاجتماعيات","٩١","🌍","#e4eeff"]];
-const N=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
-document.getElementById('lessons').innerHTML=L.map((l,i)=>`<div class="card row"><div class="ic" style="background:${l[4]}">${l[3]}</div><div class="g"><h4>${l[0]}</h4><p>${l[1]} · ${l[2]}</p></div><div class="num">${N(i+1)}</div></div>`).join('');
-document.getElementById('subs').innerHTML=G.map(g=>`<div class="card row"><div class="ic" style="background:${g[3]}">${g[2]}</div><div class="g"><h4>${g[0]}</h4></div><span class="score">${g[1]}</span></div>`).join('');
-function go(id){document.querySelectorAll('.scr').forEach(s=>s.classList.toggle('on',s.id===id));const n=document.getElementById('nav');n.style.display=id==='login'?'none':'flex';n.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));document.querySelectorAll('.body').forEach(b=>b.scrollTop=0)}
-function seg(b){b.parentNode.querySelectorAll('button').forEach(x=>x.classList.remove('a'));b.classList.add('a')}
+const N=s=>String(s).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+const SUB=[["اللغة العربية","📖","#dff6ee"],["الرياضيات","🧮","#e4eeff"],["العلوم","🧪","#fff2d9"],["اللغة الإنجليزية","🔤","#e4eeff"],["التربية الإسلامية","🕌","#dff6e8"],["الاجتماعيات","🌍","#e4eeff"]];
+const TM=["08:00 - 08:45","08:55 - 09:40","09:50 - 10:35","10:45 - 11:30","11:40 - 12:25"];
+const GR=[95,90,93,88,96,91];
+const LES=[["القراءة والفهم","قواعد النحو","الإملاء"],["الكسور","الأعداد العشرية","الهندسة"],["دورة الماء","النظام الشمسي","المادة وخواصها"],["Unit 1: My School","Unit 2: Family","Unit 3: Food"],["أركان الإسلام","سورة الكوثر","آداب الطعام"],["الوطن العربي","المناخ","قراءة الخرائط"]];
+const HW=[[1,"حل تمارين الصفحة ٤٥",1],[0,"كتابة موضوع تعبير",2],[2,"بحث عن دورة الماء",3],[3,"حفظ مفردات الوحدة ٤",2],[4,"حفظ سورة الكوثر",4],[5,"رسم خريطة الوطن العربي",5]];
+const AN=[["إعلان هام","الاجتماع الشهري لأولياء الأمور يوم الأحد القادم في تمام الساعة السادسة مساءً بقاعة المدرسة.","📣"],["اختبارات منتصف الفصل","تبدأ اختبارات منتصف الفصل الدراسي الأول الأسبوع القادم، يرجى مراجعة الجدول مع المعلمين.","📝"],["رحلة مدرسية","تنظم المدرسة رحلة ترفيهية لطلاب الصف السادس، ويرجى تسليم الموافقة الموقعة من ولي الأمر.","🚌"],["إجازة رسمية","تعطل الدراسة في اليوم الوطني، وتستأنف في اليوم التالي بإذن الله.","🎉"]];
+const MAIN=['home','sched','grades','more'];
+const L=(k,d)=>{try{const v=localStorage.getItem('kw_'+k);return v?JSON.parse(v):d}catch(e){return d}};
+const W=(k,v)=>{try{localStorage.setItem('kw_'+k,JSON.stringify(v))}catch(e){}};
+let today=new Date();while(today.getDay()>4)today.setDate(today.getDate()+1);
+const S={scr:'login',hist:[],date:today.getTime(),mode:'day',hw:'all',term:1,open:-1,sub:-1,unread:L('unread',3),done:L('done',[]),dark:L('dark',false)};
+const $=id=>document.getElementById(id);
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2200)}
+function theme(){document.documentElement.dataset.theme=S.dark?'dark':'light'}
+function go(s){S.hist.push(S.scr);S.scr=s;S.open=-1;S.sub=-1;render()}
+function back(){S.scr=S.hist.pop()||'home';S.open=-1;S.sub=-1;render()}
+function tab(s){S.hist=[];S.scr=s;S.open=-1;render()}
+const dstr=(d,o)=>new Date(d).toLocaleDateString('ar-EG',o||{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+const hdr=(t,ic,bk)=>`<div class="hdr">${bk?'<button class="bk" onclick="back()">→</button>':''}<h1 style="flex:1">${t}</h1><span style="font-size:22px">${ic}</span></div>`;
+const lessons=dow=>[0,1,2,3,4].map(i=>{const s=SUB[(i+dow)%6];return `<div class="card row"><div class="ic" style="background:${s[2]}">${s[1]}</div><div class="g"><h4>${s[0]}</h4><p>${N(TM[i])} · (${N(i%2+1)}) القاعة</p></div><div class="num">${N(i+1)}</div></div>`}).join('');
+const A={
+login(){return `<div class="login" style="flex:1;display:flex;flex-direction:column"><div class="logo"><div class="b">📖</div><h1>مدرسة كوثر الأهلية</h1><p>بناء جيل متميز .. لمستقبل أفضل</p></div><div class="form"><h3>تسجيل الدخول</h3><input class="inp" id="u" placeholder="اسم المستخدم" autocomplete="username"><div class="pw"><input class="inp" id="p" type="password" placeholder="كلمة المرور"><button onclick="const p=$('p');p.type=p.type=='password'?'text':'password'">👁</button></div><button class="btn" onclick="login()">دخول</button><div class="lnk" onclick="toast('لاستعادة كلمة المرور راجع إدارة المدرسة')">نسيت كلمة المرور؟</div><div class="lnk" style="color:var(--mut)" onclick="toast('لإنشاء حساب راجع إدارة المدرسة')">ليس لديك حساب؟ <b style="color:var(--pr)">تواصل مع الإدارة</b></div></div></div>`},
+home(){const T=[['sched','📅','الجدول الدراسي','#e4eeff'],['grades','🅰️','الدرجات','#fff2d9'],['att','✅','الحضور والغياب','#dff6e8'],['hw','📝','الواجبات','#dff6ee'],['les','📚','الدروس','#e4eeff'],['ann','📢','الإعلانات','#efe4ff']];
+return `<div class="hdr"><div class="row" style="cursor:default"><div class="av">🧑‍🎓</div><div><h1>مرحباً أحمد محمد</h1><small>الصف السادس الابتدائي – الشعبة (أ)</small></div></div><button class="bell" onclick="S.unread=0;W('unread',0);go('ann')">🔔${S.unread?`<b>${N(S.unread)}</b>`:''}</button></div><div class="body"><div class="banner"><h2>معاً نحو مستقبل مشرق</h2><span>مدرسة كوثر الأهلية</span></div><div class="grid">${T.map(t=>`<button class="tile" onclick="${t[0]=='sched'||t[0]=='grades'?`tab('${t[0]}')`:`go('${t[0]}')`}"><i style="background:${t[3]}">${t[1]}</i>${t[2]}</button>`).join('')}</div><div class="sec">آخر الإعلانات <a onclick="go('ann')">عرض الكل</a></div><div class="card row" onclick="go('ann')"><div class="ic" style="background:var(--soft)">${AN[0][2]}</div><div class="g"><h4>${AN[0][0]}</h4><p>${AN[0][1].slice(0,60)}…</p></div></div></div>`},
+sched(){const d=new Date(S.date),sun=new Date(S.date);sun.setDate(d.getDate()-d.getDay());
+let b='';
+if(S.mode=='day')b=`<div class="dn"><button onclick="shift(1)">›</button><span>${dstr(S.date)}</span><button onclick="shift(-1)">‹</button></div>${lessons(d.getDay())}`;
+else if(S.mode=='week')b=[0,1,2,3,4].map(i=>{const x=new Date(sun);x.setDate(sun.getDate()+i);return `<div class="card" onclick="S.date=${x.getTime()};S.mode='day';render()"><h4 style="margin-bottom:8px">${dstr(x,{weekday:'long',day:'numeric',month:'long'})}</h4><div style="display:flex;flex-wrap:wrap;gap:6px">${[0,1,2,3,4].map(k=>`<span class="tag" style="background:var(--soft);color:var(--pr)">${SUB[(k+i)%6][0]}</span>`).join('')}</div></div>`}).join('');
+else{const y=d.getFullYear(),m=d.getMonth(),f=new Date(y,m,1).getDay(),n=new Date(y,m+1,0).getDate();let c=['أحد','اثنين','ثلاثاء','أربعاء','خميس','جمعة','سبت'].map(x=>`<span class="h">${x}</span>`).join('')+'<span></span>'.repeat(f);
+for(let i=1;i<=n;i++){const dw=(f+i-1)%7,dt=new Date(y,m,i).getTime();c+=dw<5?`<span class="s ${i==d.getDate()?'t':''}" onclick="S.date=${dt};S.mode='day';render()">${N(i)}</span>`:`<span style="color:var(--mut)">${N(i)}</span>`}
+b=`<div class="dn"><span style="flex:1;text-align:center">${dstr(S.date,{month:'long',year:'numeric'})}</span></div><div class="card"><div class="cal">${c}</div></div>`}
+return hdr('الجدول الدراسي','📅')+`<div class="body"><div class="seg">${[['day','اليوم'],['week','الأسبوع'],['month','الشهر']].map(x=>`<button class="${S.mode==x[0]?'a':''}" onclick="S.mode='${x[0]}';render()">${x[1]}</button>`).join('')}</div>${b}</div>`},
+grades(){if(S.term==2)return hdr('الدرجات','🧮')+`<div class="body">${terms()}<div class="empty">📭<br><br>لم تُرصد درجات الفصل الثاني بعد</div></div>`;
+const avg=GR.reduce((a,b)=>a+b,0)/GR.length;
+return hdr('الدرجات','🧮')+`<div class="body">${terms()}<div class="ring" style="background:conic-gradient(var(--ok) ${avg}%,var(--ln) 0)"><div><span>المعدل العام<b>${N(avg.toFixed(1)).replace('.','٫')}٪</b></span></div></div>${SUB.map((s,i)=>{const t=GR[i],p1=Math.round(t*.1),p2=Math.round(t*.2),p3=t-p1-p2;return `<div class="card ${S.open==i?'open':''}"><div class="row" onclick="S.open=S.open==${i}?-1:${i};render()"><div class="ic" style="background:${s[2]}">${s[1]}</div><div class="g"><h4>${s[0]}</h4></div><span class="score">${N(t)}</span></div><div class="more">الواجبات: ${N(p1)} / ${N(10)}<br>الاختبارات القصيرة: ${N(p2)} / ${N(20)}<br>الاختبار النهائي: ${N(p3)} / ${N(70)}</div></div>`}).join('')}</div>`},
+att(){const t=new Date(),days=[];for(let i=1;i<=t.getDate();i++){const d=new Date(t.getFullYear(),t.getMonth(),i);if(d.getDay()<5)days.push(d)}
+const st=days.map((d,i)=>i==2?'غائب':i==5?'متأخر':'حاضر'),p=st.filter(x=>x=='حاضر').length,a=st.filter(x=>x=='غائب').length,l=st.filter(x=>x=='متأخر').length,pc=days.length?Math.round((p+l)*100/days.length):100;
+const col={حاضر:['#dff6e8','var(--ok)'],غائب:['#ffe4e4','var(--bad)'],'متأخر':['#fff2d9','var(--org)']};
+return hdr('الحضور والغياب','✅',1)+`<div class="body"><div class="st"><div class="card"><div><small>نسبة الحضور</small><b style="color:var(--ok)">${N(pc)}٪</b></div>👥</div><div class="card"><div><small>أيام الحضور</small><b>${N(p)}</b></div>✅</div><div class="card"><div><small>الغياب</small><b style="color:var(--bad)">${N(a)}</b></div>🚫</div><div class="card"><div><small>التأخر</small><b style="color:var(--org)">${N(l)}</b></div>⏰</div></div><div class="sec">سجل الشهر</div>${days.slice().reverse().map((d,i)=>{const s=st[days.length-1-i];return `<div class="card row" style="cursor:default"><div class="g"><h4>${dstr(d,{weekday:'long',day:'numeric',month:'long'})}</h4></div><span class="tag" style="background:${col[s][0]};color:${col[s][1]}">${s}</span></div>`}).join('')||'<div class="empty">لا توجد أيام دراسية بعد</div>'}</div>`},
+hw(){const f=S.hw,items=HW.map((h,i)=>({h,i,d:S.done.includes(i)})).filter(x=>f=='all'||(f=='done')==x.d);
+return hdr('الواجبات','📝',1)+`<div class="body"><div class="seg">${[['all','الكل'],['todo','المعلقة'],['done','المنجزة']].map(x=>`<button class="${f==x[0]?'a':''}" onclick="S.hw='${x[0]}';render()">${x[1]}</button>`).join('')}</div>${items.map(({h,i,d})=>{const dd=new Date();dd.setDate(dd.getDate()+h[2]);return `<div class="card row" onclick="tgl(${i})"><div class="chk ${d?'d':''}">${d?'✓':''}</div><div class="g"><h4 style="${d?'text-decoration:line-through;opacity:.6':''}">${h[1]}</h4><p>${SUB[h[0]][0]} · التسليم ${dstr(dd,{day:'numeric',month:'long'})}</p></div><div class="ic" style="background:${SUB[h[0]][2]}">${SUB[h[0]][1]}</div></div>`}).join('')||'<div class="empty">🎉<br><br>لا توجد واجبات هنا</div>'}</div>`},
+les(){if(S.sub<0)return hdr('الدروس','📚',1)+`<div class="body">${SUB.map((s,i)=>`<div class="card row" onclick="S.sub=${i};render()"><div class="ic" style="background:${s[2]}">${s[1]}</div><div class="g"><h4>${s[0]}</h4><p>${N(LES[i].length)} دروس</p></div><span>‹</span></div>`).join('')}</div>`;
+const i=S.sub;return `<div class="hdr"><button class="bk" onclick="S.sub=-1;render()">→</button><h1 style="flex:1">${SUB[i][0]}</h1><span style="font-size:22px">${SUB[i][1]}</span></div><div class="body">${LES[i].map((t,k)=>`<div class="card ${S.open==k?'open':''}"><div class="row" onclick="S.open=S.open==${k}?-1:${k};render()"><div class="num">${N(k+1)}</div><div class="g"><h4>${t}</h4></div><span>⌄</span></div><div class="more">أهداف الدرس: فهم المحتوى الأساسي وحل أنشطة كتاب الطالب. يُنصح بمراجعة الملخص قبل حل الواجب.</div></div>`).join('')}</div>`},
+ann(){return hdr('الإعلانات','📢',1)+`<div class="body">${AN.map((a,i)=>`<div class="card ${S.open==i?'open':''}" onclick="S.open=S.open==${i}?-1:${i};render()"><div class="row"><div class="ic" style="background:var(--soft)">${a[2]}</div><div class="g"><h4>${a[0]}</h4></div><span>⌄</span></div><div class="more">${a[1]}</div></div>`).join('')}</div>`},
+parent(){const pc=Math.round(GR.reduce((a,b)=>a+b,0)/GR.length*10)/10,pend=HW.length-S.done.length;
+return hdr('أولياء الأمور','👤',1)+`<div class="body"><div class="card row" style="cursor:default"><div class="av" style="background:var(--soft);border:0">🧑‍🎓</div><div class="g"><h4>أحمد محمد</h4><p>الصف السادس الابتدائي – الشعبة (أ)</p></div></div><div class="st"><div class="card" onclick="go('att')"><div><small>الحضور</small><b style="color:var(--ok)">${N(98)}٪</b></div>👥</div><div class="card" onclick="tab('grades')"><div><small>الدرجات</small><b style="color:var(--pr)">${N(pc).replace('.','٫')}٪</b></div>🧮</div><div class="card" onclick="go('hw')"><div><small>الواجبات</small><b style="color:var(--org)">${N(pend)}</b></div>🏠</div><div class="card" onclick="go('att')"><div><small>الغياب</small><b style="color:var(--bad)">${N(1)}</b></div>🚫</div></div><div class="sec">الأنشطة الأخيرة</div>${[['🅰️','تمت إضافة درجات جديدة','#efe4ff','grades'],['✅','تم تسجيل حضور الطالب','#dff6e8','att'],['📄','تم نشر واجب جديد','#e4eeff','hw']].map(a=>`<div class="card row" onclick="${a[3]=='grades'?"tab('grades')":`go('${a[3]}')`}"><div class="ic" style="background:${a[2]}">${a[0]}</div><div class="g"><h4>${a[1]}</h4></div></div>`).join('')}</div>`},
+more(){const M=[['👤','أولياء الأمور',"go('parent')"],['✅','الحضور والغياب',"go('att')"],['📝','الواجبات',"go('hw')"],['📚','الدروس',"go('les')"],['📢','الإعلانات',"go('ann')"],[S.dark?'☀️':'🌙',S.dark?'الوضع الفاتح':'الوضع الداكن',"S.dark=!S.dark;W('dark',S.dark);theme();render()"],['ℹ️','عن التطبيق',"toast('مدرسة كوثر الأهلية – الإصدار ١٫٠')"],['🚪','تسجيل الخروج',"S.hist=[];S.scr='login';render()"]];
+return hdr('المزيد','⋯')+`<div class="body">${M.map(m=>`<div class="card row" onclick="${m[2]}"><div class="ic" style="background:var(--soft)">${m[0]}</div><div class="g"><h4>${m[1]}</h4></div><span>‹</span></div>`).join('')}</div>`}
+};
+function terms(){return `<div class="sel">${[1,2].map(t=>`<button class="${S.term==t?'a':''}" onclick="S.term=${t};S.open=-1;render()">${t==1?'الفصل الأول':'الفصل الثاني'}</button>`).join('')}</div>`}
+function shift(n){const d=new Date(S.date);do{d.setDate(d.getDate()+n)}while(d.getDay()>4);S.date=d.getTime();render()}
+function tgl(i){const k=S.done.indexOf(i);k<0?S.done.push(i):S.done.splice(k,1);W('done',S.done);render()}
+function login(){const u=$('u').value.trim(),p=$('p').value;if(!u||!p){toast('أدخل اسم المستخدم وكلمة المرور');return}S.hist=[];S.scr='home';render()}
+function render(){theme();$('view').innerHTML=A[S.scr]();const n=$('nav');if(S.scr=='login'){n.style.display='none';return}
+const cur=MAIN.includes(S.scr)?S.scr:S.scr=='parent'?'more':'home';
+n.style.display='flex';n.innerHTML=[['home','🏠','الرئيسية'],['sched','📅','الجدول'],['grades','🅰️','الدرجات'],['more','⋯','المزيد']].map(x=>`<button class="${cur==x[0]?'on':''}" onclick="tab('${x[0]}')"><span>${x[1]}</span>${x[2]}</button>`).join('')}
+render();
 </script>
 </body>
 </html>
